@@ -1,15 +1,19 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Vue from "vue";
+import Router from "vue-router";
+import MainContent from "@/components/MainContent";
+import MainSidbar from "@/components/MainSidbar";
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: "/",
+      name: "root",
+      components: {
+        main: MainContent,
+        MainSidbar
+      }
     }
   ]
-})
+});
