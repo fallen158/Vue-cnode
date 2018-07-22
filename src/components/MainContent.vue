@@ -16,6 +16,6 @@ export default {
 .main-content {
     
     border: 1px solid;
-   flex: 1;
+   
 }
 </style>
