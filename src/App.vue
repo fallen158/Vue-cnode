@@ -23,7 +23,9 @@ export default {
 </script>
 
 <style lang="scss">
-.main {
+#app{
+    background: #e1e1e1;
+    .main {
   width: 90%;
   max-width: 1400px;
   min-width: 960px;
@@ -32,8 +34,10 @@ export default {
   border: 1px solid;
   display: flex;
   justify-content: space-between;
+  background: white;
   .main-content {
     flex: 1;
   }
+}
 }
 </style>
