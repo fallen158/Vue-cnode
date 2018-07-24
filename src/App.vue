@@ -5,6 +5,7 @@
       <router-view name="main"/>
       <router-view name="MainSidbar"></router-view>
     </main>
+    <footer>1</footer>
   </div>
 </template>
 
@@ -31,7 +32,6 @@ export default {
   min-width: 960px;
   margin: 15px auto;
   min-height: 400px;
-  border: 1px solid;
   display: flex;
   justify-content: space-between;
   background: white;

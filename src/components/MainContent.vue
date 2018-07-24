@@ -38,11 +38,13 @@
                 </li>
             </ul>
         </div>
+        <Pagination/>
     </div>
 </template>
 
 
 <script>
+import Pagination from './Pagination'
 export default {
   name: "MainContent",
   data() {
@@ -70,6 +72,9 @@ export default {
   beforeMount() {
     this.isloading = true;
     this.getData();
+  },
+  components:{
+    Pagination
   }
 };
 </script>
