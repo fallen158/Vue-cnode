@@ -38,7 +38,7 @@
                 </li>
             </ul>
         </div>
-        <Pagination/>
+        <Pagination @handleList="x"/>
     </div>
 </template>
 
@@ -50,7 +50,8 @@ export default {
   data() {
     return {
       isloading: false,
-      posts: []
+      posts: [],
+      postPage: 1
     };
   },
   methods: {
@@ -58,15 +59,18 @@ export default {
       this.$http
         .get("https://cnodejs.org/api/v1/topics", {
           params: {
-            page: 1,
+            page: this.postPage,
             limit: 20
           }
         })
         .then(res => {
           this.isloading = false;
           this.posts = res.data.data;
-          console.log(this.posts);
         });
+    },
+    x(value){
+      this.postPage = value
+      this.getData()
     }
   },
   beforeMount() {

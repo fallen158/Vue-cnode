@@ -2,8 +2,9 @@
     <div class="pagination">
         <button @click="changePage">首页</button>
         <button @click="changePage">上一页</button>
-        <button class="pagebtn">.....</button>
-        <button v-for="btn in pagebths" :key="btn.id" @click="changePage(btn)">
+        <button  v-show="judge" class="pagebtn">.....</button>
+        <button v-for="btn in pagebths" :key="btn.id" 
+        :class="[{currentPage:btn == currentPage},'pagebtn']" @click="changePage(btn)">
             {{btn}}
         </button>
         <button @click="changePage">下一页</button>
@@ -11,36 +12,53 @@
 </template>
 
 <script>
-import $ from 'jquery'
+import $ from "jquery";
 export default {
   name: "Pagination",
-  data(){
-      return{
-          pagebths:[1,2,3,4,5,'.....'],
-          currentPage: 1,
-      }
+  data() {
+    return {
+      pagebths: [1, 2, 3, 4, 5, "....."],
+      currentPage: 1,
+      judge: false
+    };
   },
-  methods:{
-      changePage(page){
-          if(page !== 'number'){
-              switch(page.target.innerText){
-                  case '首页':
-                  break;
-                  case '上一页':
-                   $('button.currentPage').prev().click()
-                  break;
-                  case '下一页':
-                   $('button.currentPage').next().click()
-                  break
-              }
-            return
-              
-          }
-        this.currentPage = page
+  methods: {
+    changePage(page) {
+          if(typeof page !== 'number'){
+            switch(page.target.innerText){
+                case '首页':
+                this.pagebths = [1,2,3,4,5,'......']
+                this.currentPage = 1
+                this.jduge = false
+                this.$emit('handleList',this.currentPage)
+                break;
+                case '下一页':
+                  $('button.currentPage').next().click()
+                break;
+                case '上一页':
+                  $('button.currentPage').prev().click()
+                break
+            }
+            return 
+        }
 
-      }
+        this.currentPage = page
+        if(page>4){
+            this.jduge = true
+        }else{
+            this.jduge = false
+        }
+        if(page === this.pagebths[4]){
+            this.pagebths.shift()
+            this.pagebths.splice(4,0,this.pagebths[3]+1)
+        }else if(page == this.pagebths[0] && page>1){
+          this.pagebths.unshift(this.pagebths[0]-1);
+            this.pagebths.splice(5,1);
+        }
+        this.$emit('handleList',this.currentPage)
+    }
   }
-};
+}
 </script>
 
 
@@ -49,7 +67,7 @@ export default {
   margin-top: 5px;
   margin-bottom: 10px;
   background-color: white;
-  padding: 6px 10px;
+  padding: 10px 10px;
   /*box-shadow: 0px 2px 9px #888888;*/
 }
 
