@@ -48,6 +48,14 @@ Vue.filter("tabFormter", post => {
   }
 });
 
+Vue.filter("topicForm",post=>{
+  if(post.tab === "share"){
+    return "分享";
+  } else if (post.tab === "ask") {
+    return "问答";
+  }
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: "#app",

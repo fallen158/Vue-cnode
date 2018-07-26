@@ -63,30 +63,22 @@ export default {
 
 
 <style lang="scss" scoped>
-.pagination {
-  margin-top: 5px;
-  margin-bottom: 10px;
-  background-color: white;
-  padding: 10px 10px;
-  /*box-shadow: 0px 2px 9px #888888;*/
-}
-
-button {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  color: #778087;
-  border-radius: 3px;
-  outline: none;
-  height: 21px;
-  cursor: pointer;
-  width: 45px;
-  height: 29px;
-  margin: 0 2px;
-}
-.currentPage {
-  color: white;
-  background-color: #1f1b1b;
-}
+    button {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      color: #778087;
+      border-radius: 3px;
+      outline: none;
+      height: 21px;
+      cursor: pointer;
+      width: 45px;
+      height: 29px;
+      margin: 0 2px;
+    }
+    .currentPage {
+      color: white;
+      background-color: #1f1b1b;
+    }
 </style>
 
 
