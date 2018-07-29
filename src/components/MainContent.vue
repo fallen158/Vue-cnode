@@ -15,9 +15,16 @@
                 </li>
                 <li v-for="post in posts" :key="post.id" class="post">
                     <span class="post_list">
-                        <a href="" class="avatar_url">
+                      <router-link :to="{
+                        name: 'user_info',
+                        params:{
+                          name: post.author.loginname
+                        }
+                      }">
+                         <a href="" class="avatar_url">
                             <img :src="post.author.avatar_url" alt="">
                         </a>
+                      </router-link>
                         <span class="reply_count">
                             <span class="count_replies">{{post.reply_count}}</span><span class="count_seperator">/</span><span class="count_visits">{{post.visit_count}}</span>
                         </span>
@@ -74,7 +81,6 @@ export default {
         .then(res => {
           this.isloading = false;
           this.posts = res.data.data;
-          console.log(this.posts)
         });
     },
     x(value) {

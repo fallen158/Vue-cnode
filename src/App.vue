@@ -1,10 +1,8 @@
 <template>
   <div id="app">
-    <Navbar/>
-   
-      <router-view name="main"/>
-
-    
+    <Navbar/> 
+    <router-view name="main"/>
+    <router-view name="SlideBar"></router-view>
   </div>
 </template>
 

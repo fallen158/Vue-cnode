@@ -103,6 +103,8 @@ export default {
   justify-content: space-between;
   .content {
     margin-right: 20px;
+    max-width: 860px;
+    min-width: 860px;
     .panel {
       background: white;
       .topic_header {
