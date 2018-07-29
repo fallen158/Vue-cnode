@@ -4,7 +4,7 @@
    
       <router-view name="main"/>
 
-    <footer>CNode社区</footer>
+    
   </div>
 </template>
 
@@ -23,10 +23,6 @@ export default {
 <style lang="scss">
 #app {
   background: #e1e1e1;
-  footer{
-    background: white;
-    height: 20px;
-    margin-top: 20px;
-  }
+  padding-bottom: 5px;
 }
 </style>
